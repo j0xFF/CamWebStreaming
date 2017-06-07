@@ -1,18 +1,18 @@
 <!--For DCS-2121/DCS-2102/DCS-3410/DCS-6410/DCS-3411/DCS-3430... -->
 <HTML>
-    <HEAD>
-        <TITLE>LiveCam Demo (Barcelona) DCS-3430</TITLE>
-        <script language="javascript">
-            function StartStreaming()
-            {
-                //Connect to the camera.
+	<HEAD>
+		<TITLE>LiveCam Demo (Barcelona) DCS-3430</TITLE>
+		<script language="javascript">
+			function StartStreaming()
+			{
+				//Connect to the camera.
 				//The value 0:both audio and video streaming, 1:only video streaming, 2:only audio streaming.
 				dcs.LiveStreamIn(1);
 			}
 		</script>
 	</HEAD>
 	<BODY>
-        <script language="javascript">
+		<script language="javascript">
 			document.write("<OBJECT ID=\"dcs\" CLASSID=\"CLSID:721700FE-7F0E-49C5-BDED-CA92B7CB1245\" ");
 			document.write(" codebase=\"/dcsclictrl.cab #Version=1,0,0,2125\" ");
 			document.write(" style=\"WIDTH: 640; HEIGHT:480;\">");
