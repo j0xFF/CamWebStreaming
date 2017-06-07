@@ -1,0 +1,47 @@
+<!--For DCS-2121/DCS-2102/DCS-3410/DCS-6410/DCS-3411/DCS-3430... -->
+<HTML>
+    <HEAD>
+        <TITLE>LiveCam Demo (Barcelona) DCS-3430</TITLE>
+        <script language="javascript">
+            function StartStreaming()
+            {
+                //Connect to the camera.
+				//The value 0:both audio and video streaming, 1:only video streaming, 2:only audio streaming.
+				dcs.LiveStreamIn(1);
+			}
+		</script>
+	</HEAD>
+	<BODY>
+        <script language="javascript">
+			document.write("<OBJECT ID=\"dcs\" CLASSID=\"CLSID:721700FE-7F0E-49C5-BDED-CA92B7CB1245\" ");
+			document.write(" codebase=\"/dcsclictrl.cab #Version=1,0,0,2125\" ");
+			document.write(" style=\"WIDTH: 640; HEIGHT:480;\">");
+			document.write(" </OBJECT>");
+			
+			//set URL
+			dcs.RemoteHost="10.255.255.1";
+			dcs.RemotePort=80;
+			
+			//set proxy to follow IE Proxy setting.
+			dcs.Proxy=dcs.GetIEProxy();
+			dcs.ProxyPort=dcs.GetIEProxyPort();
+			dcs.SpecifiedBypass=dcs.GetIESpecifiedBypass();
+			dcs.UseBypass(dcs.GetIEBypassEnable());
+			dcs.UseProxy(dcs.GetIEProxyEnable());
+			
+			//set username and password
+			dcs.Username="admin";
+			dcs.Password="";
+			
+			//Specify which profile of video acquired by the object. Typically, there are 4 profiles in a multi-profile camera.
+			dcs.ProfileID="2";
+			
+			//Specify the stream type of the assigned profile. Possible value are: 0:MPEG4, 1:MJPG, 2:H.264.
+			//User should check the stream type of each profile before connect it.
+			dcs.SetStreamType(0);
+			
+			// Start video stream
+			window.setTimeout('StartStreaming()', 1000);
+		</script>
+	</BODY>
+</HTML>
